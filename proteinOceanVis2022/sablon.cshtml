@@ -1,0 +1,268 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Protein Ocean / Sporcu Gıdaları</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/css2/stil2.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <div>
+        <div class="yanmenu">
+            <div style="font-size: 18px;text-align: right;cursor: pointer;" class="carpi"><i class="fa fa-times" onclick="yankapan()"></i></div>
+            <ul>
+                <li class="yan"><a style="color: orange;" class="yanmenuyazi" href="~/Tarik/lansman">LANSMAN</a></li>
+                <li class="yan"><a style="color: red;" class="yanmenuyazi" href="~/Tarik/paketler">PAKETLER</a></li>
+                <details class="yan">
+                    <summary><a class="yanmenuyazi" href="~/Tarik/protein">PROTEİN</a></summary>
+                <li>
+                    <ul>
+                        <li><a href="~/Tarik/proteinler">PROTEİNLER</a></li>
+                        <li><a href="~/Tarik/proteinliurunler">PROTEİNLİ ÜRÜNLER</a></li>
+                    </ul>
+                </li>
+                </li>
+                </details>
+                <details class="yan">
+                    <summary><a class="yanmenuyazi" href="~/Tarik/sporgida">SPOR GIDALARI</a></summary>
+                <li>
+                    <ul>
+                        <li><a href="~/Tarik/aminoasit">AMİNO ASİTLER</a></li>
+                        <li><a href="~/Tarik/preworkout">PRE-WORKOUT</a></li>
+                        <li><a href="~/Tarik/karbonhidrat">KARBONHİDRATLAR</a></li>
+                    </ul>
+                </li>
+                </details>
+                <details class="yan">
+                    <summary><a class="yanmenuyazi" href="~/Tarik/vitamin">VİTAMİN</a></summary>
+                <li>
+                    <ul>
+                        <li><a href="~/Tarik/formulurun">FORMÜL ÜRÜNLER</a></li>
+                        <li><a href="~/Tarik/poptakviye">POPÜLER TAKVİYELER</a></li>
+                        <li><a href="~/Tarik/mineral">MİNERALLER</a></li>
+                    </ul>
+                </li>
+                </details>
+                <details class="yan">
+                    <summary><a class="yanmenuyazi" href="~/Tarik/saglik">SAĞLIK</a></summary>
+                <li>
+                    <ul>
+                        <li><a href="~/Tarik/fonkgida">FONKSİYONEL GIDALAR</a></li>
+                        <li><a href="~/Tarik/bitkitozu">BİTKİ TOZLARI</a></li>
+                        <li><a href="~/Tarik/zayiflama">ZAYIFLAMA</a></li>
+                    </ul>
+                </li>
+                </details>
+                <details class="yan">
+                    <summary><a class="yanmenuyazi" href="~/Tarik/gida">GIDA</a></summary>
+                <li>
+                    <ul>
+                        <li><a href="~/Tarik/gida">GIDA ÜRÜNLERİ</a></li>
+                    </ul>
+                </li>
+                </details>
+                <details class="yan">
+                    <summary><a class="yanmenuyazi" href="~/Tarik/aksesuar">AKSESUAR</a></summary>
+                <li>
+                    <ul>
+                        <li><a href="~/Tarik/aksesuar">AKSESUAR</a></li>
+                    </ul>
+                </li>
+                </details>
+            </ul>
+        </div>
+        <div class="anamenu">
+            <div id="ustmenu">
+                <div id="solmenu">
+                    <i id="hamburgermenu" class="fa fa-navicon" onclick="yanacil()"></i>
+                    <a href="~/Tarik/index"><img id="logoimg" src="~/img/logo.svg" alt=""></a>
+
+                </div>
+                <div id="ortamenu">
+                    <form action="~/Tarik/Arama" method="get" >
+                        <input type="search" name="kelime" id="" placeholder="150+'den fazla üründen ara">
+                    </form>
+                </div>
+                <div id="sagmenu">
+                    @if (Session["kullanici"] == null)
+                    {
+                        <div class="hesap">
+                            <a href="">
+                                <i class="fa fa-user"></i>
+                                <span>Merhaba Misafir</span>
+
+                            </a>
+                            <ul class="acilirmenu">
+                                <li><a href="~/Tarik/girisyap">Üye Girişi</a></li>
+                                <li><a href="~/Tarik/uyeol">Üye Ol</a></li>
+                            </ul>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="hesap">
+                            <a href="">
+                                <i class="fa fa-user"></i>
+                                <span>Merhaba @Session["kullanici"] @Session["id"] </span>
+
+                            </a>
+                        </div>
+                        <div class="sepet">
+                            <a href="~/Tarik/sepet">
+                                <i class="fa fa-shopping-cart"></i>
+                                <a class="sepetsayi" href=""> SEPET <a class="sepetsayi" style="background-color:gray;color:white;padding:3px;border-radius:4px">@Session["urunsayisi"]</a></a>
+                            </a>
+                        </div>
+                        <div class="sepet">
+                            <a href="~/tarik/cikis">
+                                <i class="fa fa-sign-out"></i>
+                                <span>ÇIKIŞ</span>
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="altmenu">
+                <div id="altortamenu">
+                    <ul>
+                        <li><a id="lansmana" href="~/Tarik/lansman">LANSMAN</a></li>
+                        <li><a id="paketlera" href="~/Tarik/paketler">PAKETLER</a></li>
+                        <li>
+                            <a class="yazi" href="~/Tarik/protein">PROTEİN</a>
+                            <ul>
+                                <li><a href="~/Tarik/proteinler">PROTEİNLER</a></li>
+                                <li><a href="~/Tarik/proteinliurunler">PROTEİNLİ ÜRÜNLER</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="yazi" href="~/Tarik/sporgida">SPOR GIDALARI</a>
+                            <ul>
+                                <li><a href="~/Tarik/aminoasit">AMİNO ASİTLER</a></li>
+                                <li><a href="~/Tarik/preworkout">PRE-WORKOUT</a></li>
+                                <li><a href="~/Tarik/karbonhidrat">KARBONHİDRATLAR</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="yazi" href="~/Tarik/vitamin">VİTAMİN</a>
+                            <ul>
+                                <li><a href="~/Tarik/formulurun">FORMÜL ÜRÜNLER</a></li>
+                                <li><a href="~/Tarik/poptakviye">POPÜLER TAKVİYELER</a></li>
+                                <li><a href="~/Tarik/mineral">MİNERALLER</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="yazi" href="~/Tarik/saglik">SAĞLIK</a>
+                            <ul>
+                                <li><a href="~/Tarik/fonkgida">FONKSİYONEL GIDALAR</a></li>
+                                <li><a href="~/Tarik/bitkitozu">BİTKİ TOZLARI</a></li>
+                                <li><a href="~/Tarik/zayiflama">ZAYIFLAMA</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="yazi" href="~/Tarik/gida">GIDA</a>
+                            <ul>
+                                <li><a href="~/Tarik/gida">GIDA ÜRÜNLERİ</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="yazi" href="~/Tarik/aksesuar">AKSESUAR</a>
+                            <ul>
+                                <li><a href="~/Tarik/aksesuar">AKSESUAR</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="enaltmenu">
+                <div class="bilgimenu">
+                    <div id="guvenlialisveris">
+                        <i style="margin-right: 5px;" class="fa fa-check-circle-o"></i>
+                        <p><b>GÜVENLİ ALIŞVERİŞ - </b> 1.000.000+ MUTLU MÜŞTERİ</p>
+                    </div>
+                    <div id="aynigunkargo">
+                        <i style="margin-right: 5px;" class="fa fa-cube"></i>
+                        <p><b>AYNI GÜN KARGO - </b> 16:00’DAN ÖNCEKİ SİPARİŞLERDE</p>
+                    </div>
+                    <div id="ucretsizkargo">
+                        <i style="margin-right: 5px;" class="fa fa-smile-o"></i>
+                        <p><b>ÜCRETSİZ KARGO - </b> 150 TL ÜZERİ SİPARİŞLERDE</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+
+    <div>
+        <footer class="footer">
+            <div class="footermenu">
+                <div class="footeralt">
+                    <h4>Proteinocean</h4>
+                    <ul>
+                        <li><a href="~/Tarik/iletisim">İletişim</a></li>
+                        <li><a href="~/Tarik/hakkimizda">Hakkımızda</a></li>
+                        <li><a href="~/Tarik/sikcasorulanlar">Sıkça Sorulan Sorular</a></li>
+                        <li><a href="~/Tarik/kvkk">KVKK</a></li>
+                        <li><a href="~/Tarik/calismailkeleri">Çalışma İlkelerimiz</a></li>
+                        <li><a href="~/Tarik/satissozlesmesi">Satış Sözleşmesi</a></li>
+                        <li><a href="~/Tarik/garantikosullari">Garanti ve İade Koşulları</a></li>
+                        <li><a href="https://proteinocean.com/pages/yorum">Gerçek Müşteri Yorumları</a></li>
+                        <li><a href="https://proteinocean.com/blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footeralt">
+                    <h4>Kategoriler</h4>
+                    <ul>
+                        <li><a href="~/Tarik/protein">Protein</a></li>
+                        <li><a href="~/Tarik/sporgida">Spor Gıdaları</a></li>
+                        <li><a href="~/Tarik/saglik">Sağlık</a></li>
+                        <li><a href="~/Tarik/gida">Gıda</a></li>
+                        <li><a href="~/Tarik/vitamin">Vitamin</a></li>
+                        <li><a href="~/Tarik/aksesuar">Aksesuar</a></li>
+                        <li><a href="~/Tarik/tumurunler">Tüm Ürünler</a></li>
+                        <li><a href="~/Tarik/paketler">Paketler</a></li>
+                        <li><a href="~/Tarik/lansman">Lansmana Özel Fırsatlar</a></li>
+                    </ul>
+                </div>
+                <div class="footeralt">
+                    <h4>Popüler Ürünler</h4>
+                    <ul>
+                        <li><a href="#">Whey Protein</a></li>
+                        <li><a href="#">Cream of Rice</a></li>
+                        <li><a href="#">Creatine</a></li>
+                        <li><a href="#">BCAA+</a></li>
+                        <li><a href="#">Pre-Workout+</a></li>
+                        <li><a href="#">Fitness Paketi</a></li>
+                        <li><a href="#">Collagen</a></li>
+                        <li><a href="#">Günlük Vitamin Paketi</a></li>
+                        <li><a href="#">ZMA</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footermenu">
+                <div class="footeralt">
+                    <img src="~/img/millitakimfooter.webp" />
+                </div>
+                <div class="footeralt">
+                    <a href="https://api.whatsapp.com/send/?phone=905543432326&text&type=phone_number&app_absent=0"><img src="~/img/whatsapfooter.webp" /></a>
+                </div>
+                <div class="footeralt">
+                    <a href="https://etbis.ticaret.gov.tr/"><img src="~/img/etbisfooter.jpeg" /></a>
+                </div>
+            </div>
+            <div class="footeraltmenu">
+                Copyright © - Tüm Hakları Saklıdır. ikas <a style="text-decoration: none; color: white;" href="https://ikas.com/tr?utm_source=proteinocean&utm_medium=referral_link">E-Ticaret</a> Altyapısı ile Hazırlanmıştır.
+            </div>
+        </footer>
+    </div>
+    <script src="~/detay.js"></script>
+</body>
+</html>
